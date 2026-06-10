@@ -2,11 +2,11 @@
 name = "tfversion"
 version = "0.1.0"
 description = "Print the Terraform version recorded in a remote S3 state file"
-authors = ["your-name <your@email.com>"]
+authors = ["Dapinder Singh <dhillon.dapinder@gmail.com>"]
 packages = [{include = "tfversion", from = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.13"
 boto3 = "^1.26"
 typer = {extras = ["all"], version = ">=0.12"}
 

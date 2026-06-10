@@ -132,6 +132,12 @@ Minimum test coverage:
 - No path argument: defaults to CWD (use `monkeypatch.chdir`)
 - All eight error rows in the table above
 
+## Coding principles
+
+- Prefer classes over standalone functions unless the logic is trivially simple. Structure code using object-oriented design.
+- Every class and every method must have a single responsibility. If something does two things, split it.
+- No documentation anywhere in code — no docstrings on classes, methods, or modules, no inline comments explaining what the code does.
+
 ## What NOT to build
 
 - No `--switch` / auto-tfenv behaviour
