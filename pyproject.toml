@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "tfversion"
+version = "0.1.0"
+description = "Print the Terraform version recorded in a remote S3 state file"
+authors = ["your-name <your@email.com>"]
+packages = [{include = "tfversion", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+boto3 = "^1.26"
+typer = {extras = ["all"], version = ">=0.12"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-mock = "^3.14"
+
+[tool.poetry.scripts]
+tfversion = "tfversion.cli:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
