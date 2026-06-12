@@ -72,19 +72,19 @@ flowchart LR
 ### pipx (recommended — isolated global install)
 
 ```bash
-pipx install git+https://github.com/your-org/tfversion.git
+pipx install git+https://github.com/dapinder-dhillon/tfversion.git
 ```
 
 ### pip
 
 ```bash
-pip install git+https://github.com/your-org/tfversion.git
+pip install git+https://github.com/dapinder-dhillon/tfversion.git
 ```
 
 ### From source
 
 ```bash
-git clone https://github.com/your-org/tfversion.git
+git clone https://github.com/dapinder-dhillon/tfversion.git
 cd tfversion
 poetry install
 ```
@@ -174,7 +174,7 @@ All errors are written to **stderr** and exit with code `1`. Nothing is written 
 ## Development
 
 ```bash
-git clone https://github.com/your-org/tfversion.git
+git clone https://github.com/dapinder-dhillon/tfversion.git
 cd tfversion
 poetry install
 poetry run pytest -v
@@ -213,4 +213,4 @@ vhs docs/demo.tape
 
 ## License
 
-MIT © [Dapinder Singh](https://github.com/your-org)
+MIT © [Dapinder Singh](https://github.com/dapinder-dhillon)

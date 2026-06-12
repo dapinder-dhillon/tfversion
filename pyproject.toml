@@ -13,6 +13,7 @@ typer = {extras = ["all"], version = ">=0.12"}
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0"
 pytest-mock = "^3.14"
+python-semantic-release = "^10.5.3"
 
 [tool.poetry.scripts]
 tfversion = "tfversion.cli:run"
@@ -20,3 +21,13 @@ tfversion = "tfversion.cli:run"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+build_command = "poetry build"
+
+[tool.semantic_release.remote]
+type = "github"
+
+[tool.semantic_release.publish]
+upload_to_vcs_release = true

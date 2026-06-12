@@ -9,7 +9,7 @@
 ## Dev setup
 
 ```bash
-git clone https://github.com/your-org/tfversion.git
+git clone https://github.com/dapinder-dhillon/tfversion.git
 cd tfversion
 poetry install
 ```
@@ -29,6 +29,18 @@ All tests are offline — no AWS credentials needed.
 - No docstrings, no inline comments explaining what the code does
 - Each class lives in its own file under `src/tfversion/`
 - Imports ordered: stdlib → third-party → local
+
+## Commit messages
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/). Commit messages
+determine the next version automatically — get them right or no release will be cut.
+
+| Prefix | Effect | Example |
+|--------|--------|---------|
+| `fix:` | patch bump `0.1.0 → 0.1.1` | `fix: handle empty S3 response body` |
+| `feat:` | minor bump `0.1.0 → 0.2.0` | `feat: add GCS backend support` |
+| `feat!:` or `BREAKING CHANGE:` in footer | major bump `0.1.0 → 1.0.0` | `feat!: rename --verbose to --detail` |
+| `docs:` `chore:` `ci:` `test:` `refactor:` | no release | `docs: update installation steps` |
 
 ## Submitting a pull request
 
