@@ -1,9 +1,33 @@
-/.idea/
-/prompt_iteration1.md
-/prompt_iteration2.md
-/prompt_iteration3.md
-/prompt_iteration4.md
-/prompt_iteration5.md
-/prompt.md
-**__pycache__**
-/Claude.md
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+
+# Testing & coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+
+# Claude Code (local config — not project config)
+.claude/
+
+# Prompt drafts
+prompt.md
+prompt_iteration1.md
+prompt_iteration2.md
+prompt_iteration3.md
+prompt_iteration4.md
+prompt_iteration5.md
