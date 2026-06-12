@@ -40,33 +40,6 @@ The usual fix is manual: download the state file, grep for `terraform_version`, 
 
 ---
 
-## How it works
-
-```mermaid
-flowchart LR
-    subgraph local ["  Local  "]
-        tf(["*.tf files"])
-        parser["HclParser"]
-        config["BackendConfig"]
-        tf -->|"regex"| parser --> config
-    end
-
-    subgraph cloud ["  AWS  "]
-        s3[("S3 bucket")]
-    end
-
-    config -->|"boto3 session"| s3
-    s3 -->|"terraform_version"| out(["1.0.11"])
-
-    style tf     fill:#1e293b,stroke:#475569,color:#cbd5e1
-    style parser fill:#1e3a5f,stroke:#2563eb,color:#bfdbfe
-    style config fill:#1e3a5f,stroke:#2563eb,color:#bfdbfe
-    style s3     fill:#431407,stroke:#c2410c,color:#fed7aa
-    style out    fill:#052e16,stroke:#16a34a,color:#bbf7d0
-```
-
----
-
 ## Installation
 
 ### pipx (recommended — isolated global install)
