@@ -9,12 +9,6 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![boto3](https://img.shields.io/badge/AWS-boto3-FF9900?logo=amazonaws&logoColor=white)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 
-<br/>
-
-<img src="./docs/demo.gif" alt="tfversion demo" width="720"/>
-
-<br/>
-
 </div>
 
 ---
