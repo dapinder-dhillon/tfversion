@@ -15,7 +15,7 @@
 
 ## The problem
 
-Terraform records the exact version that last wrote a state file — not inside your `.tf` files, but inside the remote state itself. When a module only declares `required_version = "~>1.0.0"`, it doesn't tell you whether the team last ran `1.0.9` or `1.0.11`.
+Terraform records the exact version that last wrote a state file and not inside your `.tf` files, but inside the remote state itself. When a module only declares `required_version = "~>1.0.0"`, it doesn't tell you whether the team last ran `1.0.9` or `1.0.11`.
 
 Run the wrong patch version and Terraform silently upgrades the state file format. That upgrade **cannot be rolled back** and immediately breaks every other developer working on the same module.
 
@@ -25,18 +25,18 @@ The usual fix is manual: download the state file, grep for `terraform_version`, 
 
 ## Features
 
-- Parses `backend "s3"` blocks from any `.tf` file in the directory — no config needed
+- Parses `backend "s3"` blocks from any `.tf` file in the directory and no config needed
 - Fetches the remote state over the same AWS profile declared in the backend block
 - Prints a bare version string, ready to pipe into `tfenv`
 - `--verbose` mode surfaces the full backend context at a glance
 - Follows Terraform's own credential resolution order: named profile → `AWS_PROFILE` → default profile → instance role
-- Zero state mutation — read-only `s3:GetObject`
+- Zero state mutation i.e. read-only `s3:GetObject`
 
 ---
 
 ## Installation
 
-### pipx (recommended — isolated global install)
+### pipx (recommended: isolated global install)
 
 ```bash
 pipx install git+https://github.com/dapinder-dhillon/tfversion.git
@@ -62,7 +62,7 @@ After installation `tfversion` is on your `PATH`.
 
 ## Usage
 
-### Default — bare version string
+### Default and bare version string
 
 ```
 $ cd infra/modules/prod-newrelic
@@ -147,33 +147,12 @@ poetry install
 poetry run pytest -v
 ```
 
-### Project layout
-
-```
-src/tfversion/
-├── config.py       # BackendConfig dataclass
-├── parser.py       # HclParser  — reads .tf files, extracts backend block
-├── fetcher.py      # S3StateFetcher — fetches and decodes state from S3
-├── formatter.py    # VerboseFormatter — formats the --verbose output
-└── cli.py          # Typer app + entry point
-tests/
-└── test_cli.py     # 17 tests, no real AWS calls, no moto
-```
-
-### Generating the demo GIF
-
-Install [VHS](https://github.com/charmbracelet/vhs) then run:
-
-```bash
-vhs docs/demo.tape
-```
-
 ---
 
 ## What it does not do
 
 - **Auto-switch versions.** Use `tfenv use $(tfversion)` for that.
-- **Support non-S3 backends.** GCS, Azure, Consul — not supported.
+- **Support non-S3 backends.** GCS, Azure, Consul not supported.
 - **Cache results.** Every call fetches live state. A stale cache is more dangerous than a slow lookup.
 
 ---
